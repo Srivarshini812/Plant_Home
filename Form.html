@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Submission</title>
+</head>
+<body>
+<div id="form">
+<h2>Enter Your Details</h2>
+<form id="myForm">
+    <label>Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label>Email:</label>
+    <input type="email" id="email"><br><br>
+
+     <label for="pwd">Password:</label>
+     <input type="password" id="pwd"><br><br>
+
+     <label for="gender">Gender:</label>
+     <input type="radio" name="gender">
+    <label for="female">Female</label>
+     <input type="radio" name="gender">
+    <label for="male">Male</label><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<p id="message"></p>
+</div>
+<script>
+    window.onload = function() {
+        document.getElementById("form").style.display = "block";
+    
+    };      
+    document.getElementById("myForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    if(name === "" || email === ""){
+        document.getElementById("message").innerText = "Please fill all fields";
+        document.getElementById("message").style.color="red";
+    } else {
+        document.getElementById("message").innerText = "Form submitted successfully!";
+         document.getElementById("message").style.color="green";
+   }
+
+});
+    
+</script>
+</body>
+</html>

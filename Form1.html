@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <style>
+        *{
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="Form">
+        <form id="Myform">
+            <label for="Name">Name:</label>
+            <input type="text" id="Name"><br>
+            <label for="Email">Email</label>
+            <input type="email" id="Email"><br>
+            <label for="pwd">Password</label>
+            <input type="password" id="pwd"><br>
+            <label for="gender">Gender</label>
+            <input type="radio" name="gender">
+            <label for="female">Female</label>
+            <input type="radio" name="gender">
+            <label for="male">Male</label><br>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="Msg"></p>
+    </div>
+
+    <script>
+        window.onload = function(){
+document.getElementById("Form").style.display="block";
+        };
+        document.getElementById("MyForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+      let name=document.getElementById("Name").value;
+      let email=document.getElementById("Email").value;
+      let pwd=document.getElementById("pwd").value;
+
+      if(name=== ""||email=== ""||pwd=== "")
+      {
+        document.getElementById("Msg").innerText="Pls Fill The All Info";
+        document.getElementById("Msg").style.color="red";
+      }
+      else{
+        document.getElementById("Msg").innerText="Your data was Recorded Successfully";
+        document.getElementById("Msg").style.color="green";
+      }
+    });
+    </script>
+</body>
+</html>
